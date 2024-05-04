@@ -1,11 +1,8 @@
-///////////////////////BLOC 1.1: Arrow functions//////////////////////////////////
-//Nivell 1
 //Execici 1 Conversió de funcions: Tens una funció add que accepta dos paràmetres
 //  i retorna la seva suma. Converteix-la en una funció de fletxa. Per exemple:
 //  function add(a, b) {return a + b;}.
-
-console.log("BLOC 1.1");
-console.log("Nivell 1");
+console.log("////////////////////BLOC 1: Arrow functions/////////////////////");
+console.log("--------Nivell 1--------");
 const add = (a, b) => a + b;
 
 console.log(add(2, 3));
@@ -35,14 +32,48 @@ class Person {
 const person = new Person("Xavier");
 person.greet();
 
-//////////////////////////////////BLOC 1.2: Operador ternari//////////////////////////////
-//Nivell 1
+//Nivell 2
+//EXERCICI 4 Funció de fletxa dins d'un loop: Crea una funció anomenada printNumbers que
+// accepti un array de números i utilitzi un loop for per imprimir cada número a la consola
+// utilitzant una funció de fletxa.
+console.log("--------Nivell 2--------");
+
+let arrayNum = [1, 2, 3, 4];
+
+function printNumbers(numeros) {
+  for (i = 0; i < numeros.length; i++) {
+    const imprimir = (num) => {
+      console.log(num);
+    };
+    imprimir(numeros[i]);
+  }
+}
+printNumbers(arrayNum);
+
+//Nivell 3
+//Exercici 5
+// Funció de fletxa amb 'setTimeout': Crea una funció de fletxa que imprimeixi un missatge a la
+// consola després d'esperar 3 segons.
+
+const add1 = (a, b) => {
+  setTimeout(() => {
+    const resultat = a + b;
+    console.log(
+      "NIVELL 3 - EXERCICI 5, DEL BLOC 1, setTimeout 3 segons",
+      "  El resultat és",
+      resultat
+    );
+  }, 3000);
+};
+add1(9, 9);
+
 //Exercici 1 Operador ternari bàsic: Escriu una funció potConduir que accepti l'edat com
 //  a paràmetre i utilitzi l'operador ternari per determinar si l'usuari pot conduir. Si l'edat
 //   és 18 o més, ha de retornar 'Pots conduir'. Si no, ha de retornar 'No pots conduir'.
-
-console.log("BLOC 1.2");
-console.log("Nivell 1");
+console.log(
+  "////////////////////BLOC 2: Operador ternari/////////////////////"
+);
+console.log("--------Nivell 1-------");
 
 function potsConduir(edat) {
   return edat >= 18 ? "Pots conduir" : "No pots conduir";
@@ -58,14 +89,30 @@ function mesGran(num1, num2) {
 }
 console.log(mesGran(14000, 1000));
 
-//////////////////////////////////BLOC 1.3: Callbacks/////////////////////////////////////
+//Exercici 3 Ús enllaçat d'operadors ternaris: Escriu una expressió que utilitzi enllaços
+// d'operadors ternaris per determinar si un número és positiu, negatiu o zero.
+console.log("-------Nivell 2-------");
+
+var numero = -3;
+var resultat;
+
+if (numero > 0) {
+  resultat = "Positiu";
+} else if (numero < 0) {
+  resultat = "Negatiu";
+} else {
+  resultat = "Zero";
+}
+console.log(resultat);
+
+//////////////////////////////////BLOC 3: Callbacks/////////////////////////////////////
 //Nivell 1
 //Exercici 1 Callback bàsic: Escriu una funció anomenada processar que accepti dos paràmetres:
 //  un nombre i una funció de callback. La funció processar ha d'invocar la funció de callback,
 //  passant el nombre com a paràmetre.
-
+console.log("////////////////////BLOC 3: Callbacks/////////////////////");
 console.log("BLOC 1.3");
-console.log("Nivell 1");
+console.log("--------Nivell 1--------");
 
 function processar(numero, callback) {
   callback(numero);
@@ -96,12 +143,14 @@ function callback3(nombre1, nombre2) {
 
 calculadora(4, 5, callback3);
 
-//////////////////////////////BLOC 1.4: Rest & Spread operators/////////////////////////////
+//////////////////////////////BLOC 4: Rest & Spread operators/////////////////////////////
 //Nivell 1
 //Exercici 1
-
+console.log(
+  "////////////////////BLOC 4: Rest & Spread operators/////////////////////"
+);
 console.log("BLOC 1.4");
-console.log("Nivell 1");
+console.log("-------Nivell 1--------");
 
 let numeros1 = [1, 2, 3, 4, 5];
 let numeros2 = [6, 7, 8, 9, 10];
@@ -121,13 +170,15 @@ function suma(...numeros) {
 }
 console.log(suma(12, 12, 12, 12));
 
-////////////////////////////BLOC 1.5: Array transformations///////////////////////////////
+////////////////////////////BLOC 5: Array transformations///////////////////////////////
 //Nivell 1
 //Exercici 1 Map: Teniu un array de números [1, 2, 3, 4]. Crea una nova array que contingui el
 // quadrat de cada número.
-
+console.log(
+  "////////////////////BLOC 5: Array transformations/////////////////////"
+);
 console.log("BLOC 1.5");
-console.log("Nivell 1");
+console.log("--------Nivell 1--------");
 
 let array = [1, 2, 3, 4];
 
@@ -162,13 +213,13 @@ let arrayReduce = arrayR.reduce(function (acumulat, num) {
 }, 0);
 console.log(arrayReduce);
 
-////////////////////////////////////BLOC 1.6: Array loops////////////////////////////////
+////////////////////////////////////BLOC 6: Array loops////////////////////////////////
 //Nivell 1
 //Exercici 1 forEach: Teniu una array de noms. Utilitza forEach per a imprimir cada nom a la
 // consola: let noms = ['Anna', 'Bernat', 'Clara'];
-
+console.log("////////////////////BLOC 6: Array loops/////////////////////");
 console.log("BLOC 1.6");
-console.log("Nivell 1");
+console.log("---------Nivell 1--------");
 
 let noms = ["Anna", "Bernat", "Clara"];
 
@@ -193,12 +244,15 @@ let arrayParells = arrayNumeros.filter(function (num) {
 });
 console.log(arrayParells);
 
-////////////////////////////////////BLOC 1.7: Promises & Async/Await////////////////////////////
+////////////////////////////////////BLOC 7: Promises & Async/Await////////////////////////////
 //Nivell 1
 //Exercici 1 Creació d'una Promesa: Crea una promesa que es resolgui després de 2 segons i que
 // retorni la cadena de text 'Hola, món'.
+console.log(
+  "////////////////////BLOC 7: Promises & Async/Await/////////////////////"
+);
 console.log("BLOC 1.7");
-console.log("Nivell 1");
+console.log("---------Nivell 1--------");
 
 const promesa = new Promise((resolve, rejected) => {
   setTimeout(() => {
@@ -245,3 +299,6 @@ async function getResposta() {
   console.log("Exercici 4", resultat);
 }
 getResposta();
+
+//proves
+console.log("PROVES");
