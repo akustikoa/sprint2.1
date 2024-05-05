@@ -164,7 +164,8 @@ calculadora(4, 5, callback3);
 
 //////////////////////////////BLOC 4: Rest & Spread operators/////////////////////////////
 //Nivell 1
-//Exercici 1
+//Exercici 1 Operador Spread en Arrays: Crea dues arrays, array1 i array2. Utilitza l'operador
+// spread per a crear una tercera array que contingui tots els elements de array1 i array2.
 console.log(
   "////////////////////BLOC 4: Rest & Spread operators/////////////////////"
 );
@@ -188,6 +189,67 @@ function suma(...numeros) {
   return total;
 }
 console.log(suma(12, 12, 12, 12));
+
+//Exercici 3 Copiant objectes amb Spread: Crea un objecte 'objecte1'. Després crea un segon
+// objecte, 'objecte2', que sigui una còpia de 'objecte1' utilitzant l'operador spread. Canvia
+// una propietat de 'objecte2' i comprova que 'objecte1' no ha canviat.
+console.log("-------Nivell 2--------");
+
+const objecte1 = {
+  nom: "Xavier",
+  edat: "45",
+  curs: "Angular",
+};
+const objecte2 = { ...objecte1 };
+objecte2.nom = "Julie";
+console.log("objecte1", objecte1);
+console.log("objecte2", objecte2);
+
+//Exercici 4 Rest en Destructuring: Crea una array amb diversos elements. Utilitza destructuring
+// i l'operador rest per a assignar els primers dos elements a variables, i després assignar la
+// resta dels elements a una tercera variable.
+
+const dies = [
+  "dilluns",
+  "dimarts",
+  "dimecres",
+  "dijous",
+  "divendres",
+  "dissabte",
+  "diumenge",
+];
+let [dia1, dia2, ...restadies] = dies;
+console.log("dia1", dia1);
+console.log("dia2", dia2);
+console.log("restadies", restadies);
+
+//Exercici 5 Spread en Funcions: Crea una funció que accepti tres arguments. Després, crea una
+// array amb tres elements i crida la funció utilitzant l'operador spread amb aquesta array.
+console.log("-------Nivell 3--------");
+
+function suma(a, b, c) {
+  return a + b + c;
+}
+const elements = [1, 2, 3];
+
+const resultatsuma = suma(...elements);
+console.log(resultatsuma);
+
+//Exercici 6 Fusionant Objectes amb Spread: Crea dos objectes amb propietats diferents. Utilitza
+// l'operador spread per a fusionar aquests dos objectes en un de nou.
+
+const obj1 = {
+  nom: "Xavier",
+  cognom: "Prat",
+};
+
+const obj2 = {
+  edat: 45,
+  pes: 74,
+};
+
+const obj3 = { ...obj1, ...obj2 };
+console.log(obj3);
 
 ////////////////////////////BLOC 5: Array transformations///////////////////////////////
 //Nivell 1
@@ -232,6 +294,39 @@ let arrayReduce = arrayR.reduce(function (acumulat, num) {
 }, 0);
 console.log(arrayReduce);
 
+//Nivell 2 Donat un array "[ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9 ]", crea una funció en una sola
+// línia que faci el següent:
+
+// Filtra els nombres majors o iguals a 10.
+// Multiplica cada nombre filtrat per 2.
+// Calcula la suma dels nombres filtrats i multiplicats per 2.
+// La funció ha de retornar el resultat de la suma.
+console.log("--------Nivell 2--------");
+
+const arr = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
+let arrayRed = arr
+  .filter((num) => num >= 10)
+  .map((num) => num * 2)
+  .reduce((acumulat, valoractual) => acumulat + valoractual, 0);
+console.log(arrayRed);
+
+//Nivell 3 Every / Some: Usa every i some per a determinar si tots o alguns dels elements de
+// l'array [11, 12, 13, 14] són majors que 10, respectivament
+console.log("--------Nivell 3--------");
+
+const nums = [11, 12, 13, 14];
+
+const totssonmajors = nums.every(function (valor) {
+  return valor > 10;
+});
+
+const algunesmajor = nums.some(function (valor) {
+  return valor > 10;
+});
+
+console.log("tots son majors de 10? ", totssonmajors);
+console.log("algun és major de 10?", algunesmajor);
+
 ////////////////////////////////////BLOC 6: Array loops////////////////////////////////
 //Nivell 1
 //Exercici 1 forEach: Teniu una array de noms. Utilitza forEach per a imprimir cada nom a la
@@ -249,7 +344,7 @@ noms.forEach(function (nom) {
 //Exercici 2 for-of: Teniu una array de noms. Utilitza un bucle for-of per a imprimir cada nom
 // a la consola: let noms = ['Anna', 'Bernat', 'Clara'];
 
-for (var nom of noms) {
+for (let nom of noms) {
   console.log(nom);
 }
 
@@ -262,6 +357,35 @@ let arrayParells = arrayNumeros.filter(function (num) {
   return num % 2 === 0;
 });
 console.log(arrayParells);
+
+//Exercici 4 for-in: Teniu un objecte amb parells clau-valor: let obj = { nom: Ona, edat: 25,
+// ciutat: 'Barcelona' }; Utilitza un bucle for-in per a imprimir a la consola cada clau i el seu
+// valor corresponent.
+console.log("---------Nivell 2--------");
+
+let obj = { nom: "Ona", edat: 25, ciutat: "Barcelona" };
+for (let clau in obj) {
+  console.log(clau + " : " + obj[clau]);
+}
+
+//Exercici 5 for-of amb break: Teniu una array de números. Utilitza un bucle for-of per a imprimir
+// a la consola els números fins a trobar el número 5, llavors atura el bucle: let numeros =
+// [1, 2, 3, 4, 5, 6];
+
+let numeros = [1, 2, 3, 4, 5, 6];
+for (let num of numeros) {
+  console.log(num);
+  if (num === 5) {
+    break;
+  }
+}
+console.log("---------Nivell 3--------");
+
+for (let nom of noms) {
+  console.log(nom);
+}
+//Exercici 6 for-of amb index: Utilitza un bucle for-of per a imprimir a la consola cada element
+// de l'array i la seva posició (index): let noms = ['Anna', 'Bernat', 'Clara']
 
 ////////////////////////////////////BLOC 7: Promises & Async/Await////////////////////////////
 //Nivell 1
