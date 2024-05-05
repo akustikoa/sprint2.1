@@ -93,17 +93,36 @@ console.log(mesGran(14000, 1000));
 // d'operadors ternaris per determinar si un número és positiu, negatiu o zero.
 console.log("-------Nivell 2-------");
 
-var numero = -3;
+var numero = 0;
 var resultat;
 
-if (numero > 0) {
-  resultat = "Positiu";
-} else if (numero < 0) {
-  resultat = "Negatiu";
-} else {
-  resultat = "Zero";
-}
+resultat = numero > 0 ? "positiu" : numero < 0 ? "negatiu" : "zero";
+
 console.log(resultat);
+
+//Exercici 3-B Operador ternari amb funcions: Crea una funció trobarMaxim que accepti tres
+// paràmetres (a, b, c) i utilitzi l'operador ternari per determinar el valor màxim.
+
+function trobarValorMaxim(a, b, c) {
+  return a > b ? (a > c ? a : c) : b > c ? b : c;
+}
+var valorMaxim = trobarValorMaxim(10, 40, 30);
+console.log(valorMaxim);
+
+//Exercici 4 Operador ternari dins un bucle: Escriu una funció parOImpar que accepti un array
+// de números i utilitzi un bucle per a recórrer l'array. Dins del bucle, utilitza l'operador
+// ternari per a determinar si cada número és parell o imparell.
+console.log("-------Nivell 3-------");
+
+function parOImpar(array) {
+  for (i = 0; i < array.length; i++) {
+    var nombre = array[i];
+    var tipus = nombre % 2 === 0 ? "parell" : "imparell";
+    console.log(nombre + " és " + tipus);
+  }
+}
+var nombres = [1, 2, 3, 4];
+parOImpar(nombres);
 
 //////////////////////////////////BLOC 3: Callbacks/////////////////////////////////////
 //Nivell 1
