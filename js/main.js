@@ -444,5 +444,47 @@ async function getResposta() {
 }
 getResposta();
 
-//proves
-console.log("PROVES");
+//Exercici 5 Gestió d'errors amb async/await: Modifica la funció de l'exercici 4 per a que capturi
+// qualsevol possible error utilitzant un bloc try/catch.
+console.log("---------Nivell 2--------");
+
+async function getResposta() {
+  try {
+    let resultat = await promesa;
+    console.log("Exercici 5", resultat);
+  } catch (error) {
+    console.error("sha produit un error:", error);
+  }
+}
+getResposta();
+
+//Exercici 6 Promise.all: Crea dues promeses que es resolguin després de 2 i 3 segons,
+// respectivament. Utilitza Promise.all per a esperar que ambdues promeses es resolguin, i
+// imprimeix els resultats a la consola.
+console.log("---------Nivell 3--------");
+
+function comprovacio1(input1) {
+  return new Promise((resolve, rejected) => {
+    setTimeout(() => {
+      if (input1 === "adeu") {
+        resolve("Exercici 6, Restulat resolve! Input1 és igual a adeu");
+      } else {
+        rejected("Exercici 6, Restulat rejected! Input1 no és igual a adeu");
+      }
+    }, 2000);
+  });
+}
+function comprovacio2(input2) {
+  return new Promise((resolve, rejected) => {
+    setTimeout(() => {
+      if (input2 === "adeu") {
+        resolve("Exercici 6, Resultat resolve! Input2 és igual a adeu");
+      } else {
+        rejected("Exercici 6, Resultat rejected! Input2 no és igual a adeu");
+      }
+    }, 3000);
+  });
+}
+Promise.all([comprovacio1("adeu"), comprovacio2("adeu")]).then((resposta) =>
+  console.log(resposta)
+);
