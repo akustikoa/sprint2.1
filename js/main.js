@@ -379,13 +379,14 @@ for (let num of numeros) {
     break;
   }
 }
-console.log("---------Nivell 3--------");
 
-for (let nom of noms) {
-  console.log(nom);
-}
 //Exercici 6 for-of amb index: Utilitza un bucle for-of per a imprimir a la consola cada element
 // de l'array i la seva posició (index): let noms = ['Anna', 'Bernat', 'Clara']
+console.log("---------Nivell 3--------");
+
+for (let [key, value] of noms.entries()) {
+  console.log(`nom: ${value}, index: ${key}`);
+}
 
 ////////////////////////////////////BLOC 7: Promises & Async/Await////////////////////////////
 //Nivell 1
