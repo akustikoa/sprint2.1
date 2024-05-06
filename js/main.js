@@ -58,11 +58,7 @@ printNumbers(arrayNum);
 const add1 = (a, b) => {
   setTimeout(() => {
     const resultat = a + b;
-    console.log(
-      "NIVELL 3 - EXERCICI 5, DEL BLOC 1, setTimeout 3 segons",
-      "  El resultat és",
-      resultat
-    );
+    console.log("EXERCICI 5 - BLOC 1", "  El resultat és", resultat);
   }, 3000);
 };
 add1(9, 9);
@@ -138,10 +134,10 @@ function processar(numero, callback) {
 }
 
 function callback2() {
-  const numeroRandomdeloal10 = () => Math.floor(Math.random() * 11);
+  const numeroRandomdel0al10 = () => Math.floor(Math.random() * 11);
   console.log(
     "El número aleatori demanat de l'1 al 10 és: ",
-    numeroRandomdeloal10()
+    numeroRandomdel0al10()
   );
 }
 
@@ -161,6 +157,51 @@ function callback3(nombre1, nombre2) {
 }
 
 calculadora(4, 5, callback3);
+
+//Exercici 3 Ús de callbacks en funcions asíncrones: Escriu una funció esperarISaludar que accepti
+// dos paràmetres: un nom i una funció de callback. La funció ha d'esperar 2 segons i llavors invocar
+// la funció de callback, passant el nom com a paràmetre.
+console.log("--------Nivell 2--------");
+
+function esperarISaludar(nom, callback) {
+  setTimeout(function () {
+    callback(nom);
+  }, 2000);
+}
+function callback4(nom) {
+  console.log(`Exercici 3- BLOC 3 CALLBACKS Hola, ${nom}`);
+}
+esperarISaludar("Xavier", callback4);
+
+//Exercici 4 Callbacks amb arrays: Escriu una funció processarElements que accepti dos paràmetres: un array i una funció
+// de callback. La funció processarElements ha d'invocar la funció de callback per cada element de l'array.
+
+function processarElements(myArr, callback) {
+  for (let i = 0; i < myArr.length; i++) {
+    callback(myArr[i]);
+  }
+}
+function callback(element) {
+  console.log("Element: ", element);
+}
+
+let myArr = [1, 2, 3, 4];
+processarElements(myArr, callback);
+
+//Exercici 5 Escriu una funció processarCadena que accepti dos paràmetres: una cadena de caràcters i una funció de callback.
+// La funció processarCadena ha de convertir la cadena a majúscules i llavors invocar la funció de callback amb la cadena
+// transformada.
+
+function processarCadena(cadena, callback) {
+  const cadenaUper = cadena.toUpperCase();
+  callback(cadenaUper);
+}
+const cadena = "hola";
+
+function callback(cadenaMajuscules) {
+  console.log("cadena majuscules: ", cadenaMajuscules);
+}
+processarCadena(cadena, callback);
 
 //////////////////////////////BLOC 4: Rest & Spread operators/////////////////////////////
 //Nivell 1
@@ -477,14 +518,16 @@ function comprovacio1(input1) {
 function comprovacio2(input2) {
   return new Promise((resolve, rejected) => {
     setTimeout(() => {
-      if (input2 === "adeu") {
-        resolve("Exercici 6, Resultat resolve! Input2 és igual a adeu");
+      if (input2 === "au revoir") {
+        resolve("Exercici 6, Resultat resolve! Input2 és igual a au revoir");
       } else {
-        rejected("Exercici 6, Resultat rejected! Input2 no és igual a adeu");
+        rejected(
+          "Exercici 6, Resultat rejected! Input2 no és igual a au revoir"
+        );
       }
     }, 3000);
   });
 }
-Promise.all([comprovacio1("adeu"), comprovacio2("adeu")]).then((resposta) =>
-  console.log(resposta)
+Promise.all([comprovacio1("adeu"), comprovacio2("au revoir")]).then(
+  (resposta) => console.log(resposta)
 );
