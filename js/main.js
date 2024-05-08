@@ -54,6 +54,8 @@ printNumbers(arrayNum);
 //Exercici 5
 // Funció de fletxa amb 'setTimeout': Crea una funció de fletxa que imprimeixi un missatge a la
 // consola després d'esperar 3 segons.
+console.log("--------Nivell 3--------");
+console.log("resultat a baix");
 
 const add1 = (a, b) => {
   setTimeout(() => {
@@ -89,8 +91,8 @@ console.log(mesGran(14000, 1000));
 // d'operadors ternaris per determinar si un número és positiu, negatiu o zero.
 console.log("-------Nivell 2-------");
 
-var numero = 0;
-var resultat;
+let numero = 0;
+let resultat;
 
 resultat = numero > 0 ? "positiu" : numero < 0 ? "negatiu" : "zero";
 
@@ -102,7 +104,7 @@ console.log(resultat);
 function trobarValorMaxim(a, b, c) {
   return a > b ? (a > c ? a : c) : b > c ? b : c;
 }
-var valorMaxim = trobarValorMaxim(10, 40, 30);
+let valorMaxim = trobarValorMaxim(10, 40, 30);
 console.log(valorMaxim);
 
 //Exercici 4 Operador ternari dins un bucle: Escriu una funció parOImpar que accepti un array
@@ -112,12 +114,12 @@ console.log("-------Nivell 3-------");
 
 function parOImpar(array) {
   for (i = 0; i < array.length; i++) {
-    var nombre = array[i];
-    var tipus = nombre % 2 === 0 ? "parell" : "imparell";
+    let nombre = array[i];
+    let tipus = nombre % 2 === 0 ? "parell" : "imparell";
     console.log(nombre + " és " + tipus);
   }
 }
-var nombres = [1, 2, 3, 4];
+let nombres = [1, 2, 3, 4];
 parOImpar(nombres);
 
 //////////////////////////////////BLOC 3: Callbacks/////////////////////////////////////
@@ -458,16 +460,16 @@ promesa.then((missatge) => {
 function comprovar(input) {
   return new Promise((resolve, rejected) => {
     setTimeout(() => {
-      if (input === "hola") {
-        resolve("Exercici 3, Resultat resolve! Input és igual a hola");
+      if (input === "Hola") {
+        resolve("Exercici 3, Resultat resolve! Input és igual a Hola");
       } else {
-        rejected("Exercici 3, Resultat rejected! Input no és igual a hola");
+        rejected("Exercici 3, Resultat rejected! Input no és igual a Hola");
       }
     }, 2000);
   });
 }
 
-comprovar("hola")
+comprovar("Hola")
   .then((missatge) => {
     console.log(missatge);
   })
